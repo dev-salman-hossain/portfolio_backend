@@ -1,0 +1,12 @@
+model ProjectView {
+  id          String   @id @default(cuid())
+
+  projectId   String
+
+  viewedAt    DateTime @default(now())
+
+  project     Project
+    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
