@@ -1,0 +1,16 @@
+model Testimonial {
+  id          String   @id @default(cuid())
+
+  name        String
+  designation String?
+  company     String?
+
+  image       String?
+
+  review      String
+
+  featured    Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
