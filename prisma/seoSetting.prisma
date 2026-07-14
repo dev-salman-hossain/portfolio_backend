@@ -1,0 +1,11 @@
+model SeoSetting {
+  id               String   @id @default(cuid())
+
+  metaTitle        String
+  metaDescription  String
+
+  ogImage          String?
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
