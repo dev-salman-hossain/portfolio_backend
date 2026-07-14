@@ -1,0 +1,23 @@
+model Project {
+  id            String   @id @default(cuid())
+
+  title         String
+  slug          String   @unique
+
+  description   String
+  content       String?
+
+  thumbnail     String?
+
+  githubUrl     String?
+  liveUrl       String?
+
+  technologies  String[]
+
+  featured      Boolean  @default(false)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  images        ProjectImage[]
+}
