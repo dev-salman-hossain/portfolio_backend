@@ -1,0 +1,9 @@
+model SocialLink {
+  id            String   @id @default(cuid())
+
+  platform      String
+  url           String
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
