@@ -1,16 +1,16 @@
 model GithubStats {
-  id                String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  githubUsername    String   @unique
+  githubUsername String @unique
 
-  followers         Int      @default(0)
-  following         Int      @default(0)
+  followers Int @default(0)
+  following Int @default(0)
 
-  publicRepos       Int      @default(0)
+  publicRepos Int @default(0)
 
-  totalStars        Int      @default(0)
+  totalStars Int @default(0)
 
-  lastSyncedAt      DateTime?
+  lastSyncedAt DateTime?
 
-  updatedAt         DateTime @updatedAt
+  updatedAt DateTime @updatedAt
 }

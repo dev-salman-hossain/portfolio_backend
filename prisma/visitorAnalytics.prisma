@@ -1,15 +1,15 @@
 model VisitorAnalytics {
-  id          String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  ipAddress   String?
-  userAgent   String?
+  ipAddress String?
+  userAgent String?
 
-  country     String?
-  city        String?
+  country String?
+  city    String?
 
-  page        String
+  page String
 
-  createdAt   DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([page])
   @@index([createdAt])

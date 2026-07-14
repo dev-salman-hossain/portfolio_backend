@@ -1,14 +1,14 @@
 model ContactMessage {
-  id            String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  name          String
-  email         String
-  subject       String?
-  message       String
+  name    String
+  email   String
+  subject String?
+  message String
 
-  isRead        Boolean  @default(false)
+  status ContactStatus @default(UNREAD)
 
-  createdAt     DateTime @default(now())
+  createdAt DateTime @default(now())
 
-  @@index([isRead])
+  @@index([status])
 }

@@ -1,14 +1,14 @@
 model Achievement {
-  id          String   @id @default(cuid())
+  id String @id @default(cuid())
 
   title       String
   description String?
 
-  issuer      String?
+  issuer String?
 
-  image       String?
+  image String?
 
-  achievedAt  DateTime?
+  achievedAt DateTime?
 
-  createdAt   DateTime @default(now())
+  createdAt DateTime @default(now())
 }

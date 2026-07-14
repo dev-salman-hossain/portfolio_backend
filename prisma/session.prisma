@@ -4,9 +4,9 @@ model Session {
   refreshToken String   @unique
   expiresAt    DateTime
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }

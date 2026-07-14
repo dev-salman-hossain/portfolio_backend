@@ -2,6 +2,7 @@ enum UserStatus {
   ACTIVE
   BLOCKED
 }
+
 enum ProjectStatus {
   DRAFT
   PUBLISHED

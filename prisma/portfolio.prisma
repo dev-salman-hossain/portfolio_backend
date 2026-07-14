@@ -1,21 +1,21 @@
 model Portfolio {
-  id                String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  heroTitle         String
-  heroSubtitle      String?
-  heroDescription   String?
+  heroTitle       String
+  heroSubtitle    String?
+  heroDescription String?
 
-  profileImage      String?
-  coverImage        String?
+  profileImage String?
+  coverImage   String?
 
-  resumeUrl         String?
+  resumeUrl String?
 
-  about             String
+  about String
 
-  email             String?
-  phone             String?
-  location          String?
+  email    String?
+  phone    String?
+  location String?
 
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

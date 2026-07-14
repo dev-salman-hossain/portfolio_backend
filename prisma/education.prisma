@@ -1,13 +1,13 @@
 model Education {
-  id            String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  institute     String
-  degree        String
-  field         String?
+  institute String
+  degree    String
+  field     String?
 
-  startYear     Int
-  endYear       Int?
+  startYear Int
+  endYear   Int?
 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

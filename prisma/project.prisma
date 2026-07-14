@@ -1,29 +1,30 @@
 model Project {
-  id            String   @id @default(cuid())
+  id String @id @default(cuid())
 
-  title         String
-  slug          String   @unique
+  title String
+  slug  String @unique
 
-  description   String
-  content       String?
+  description String
+  content     String?
 
-  thumbnail     String?
+  thumbnail String?
 
-  githubUrl     String?
-  liveUrl       String?
+  githubUrl String?
+  liveUrl   String?
 
-  technologies  String[]
+  technologies String[]
 
-  featured      Boolean  @default(false)
+  featured Boolean       @default(false)
+  status   ProjectStatus @default(PUBLISHED)
 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  images        ProjectImage[]
+  images ProjectImage[]
 
-    tags        ProjectTag[]
+  tags ProjectTag[]
 
-  categoryId  String?
-  category    ProjectCategory?
-    @relation(fields: [categoryId], references: [id])
+  categoryId   String?
+  category     ProjectCategory? @relation(fields: [categoryId], references: [id])
+  projectViews ProjectView[]
 }
