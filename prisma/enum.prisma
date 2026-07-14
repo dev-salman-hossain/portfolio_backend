@@ -15,3 +15,9 @@ enum SkillCategory {
   DEVOPS
   TOOL
 }
+
+enum ContactStatus {
+  UNREAD
+  READ
+  REPLIED
+}
