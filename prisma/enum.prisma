@@ -3,6 +3,11 @@ enum UserStatus {
   BLOCKED
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
 enum ProjectStatus {
   DRAFT
   PUBLISHED
