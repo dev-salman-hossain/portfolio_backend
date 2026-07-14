@@ -20,4 +20,10 @@ model Project {
   updatedAt     DateTime @updatedAt
 
   images        ProjectImage[]
+
+    tags        ProjectTag[]
+
+  categoryId  String?
+  category    ProjectCategory?
+    @relation(fields: [categoryId], references: [id])
 }
