@@ -1,7 +1,10 @@
 model Session {
   id           String   @id @default(cuid())
   userId       String
+  sessionId    String
   refreshToken String   @unique
+  deviceInfo   String?
+  ipAddress    String?
   expiresAt    DateTime
 
   createdAt DateTime @default(now())
