@@ -1,0 +1,1 @@
+{"version":3,"file":"createRateLimiter.d.ts","sourceRoot":"","sources":["../../src/utils/createRateLimiter.ts"],"names":[],"mappings":"AAAA,OAAkB,EAAE,uBAAuB,EAAE,MAAM,oBAAoB,CAAA;AACvE,OAAO,EAAE,kBAAkB,EAAE,MAAM,mBAAmB,CAAA;AAEtD,eAAO,MAAM,iBAAiB,GAAG,qCAK/B,kBAAkB,KAAE,uBAUrB,CAAA"}

@@ -9,7 +9,9 @@ const createApp=()=>{
     const app:Application = express()
     app.use(express.json())
     app.use(cors())
-    app.use(rateLimit)
+    app.use(rateLimit())
+    app.use(cookieParser())
+    return app
 }
 
 
