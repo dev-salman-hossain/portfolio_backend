@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { AuthController } from "./auth.controller.js";
 
-const router = Router();
+const router: Router = Router();
 
 // Route 1: ইউজার রেজিস্ট্রেশন করবে এবং OTP ইমেইলে যাবে
 router.post("/register", AuthController.register);
