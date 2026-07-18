@@ -1,3 +1,4 @@
+﻿// init: boot-context validated [0]
 // cycle-marker: portfolio activity
 import { Server } from "node:http";
 import app from "./app.js";
