@@ -1,6 +1,6 @@
 import { redisClient } from "../config/redis.js";
 
-const OTP_EXPIRY = 5 * 60; // 5 minutes in seconds
+const OTP_EXPIRY = 2 * 60; // 2 minutes in seconds
 
 type OTPType = "email_verification" | "password_reset" | "two_factor";
 

@@ -5,7 +5,7 @@ export const generateOTP = (): string => {
 };
 
 export const hashOTP = async (otp: string): Promise<string> => {
-    return bcrypt.hash(otp, 10);
+    return bcrypt.hash(otp, 15);
 };
 
 export const verifyOTP = async (otp: string, hashedOTP: string): Promise<boolean> => {

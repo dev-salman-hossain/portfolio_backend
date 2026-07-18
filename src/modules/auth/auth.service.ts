@@ -1,3 +1,4 @@
+import { AppError } from "../../errors/AppError.js";
 import { StatusCodes } from "http-status-codes";
 import { prisma } from "../../lib/prisma.js";
 import { hashPassword, verifyPassword } from "../../utils/hashPassword.js";
@@ -31,7 +32,7 @@ const registerUser = async (payload: UserCreateType) => {
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
-        throw Object.assign(new Error("User already exists"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "User already exists");
     }
 
     const hashedPassword = await hashPassword(password);
@@ -48,7 +49,7 @@ const registerUser = async (payload: UserCreateType) => {
         await sendVerificationEmail(newUser.email, newUser.fullName, otp);
     } catch {
         await prisma.user.delete({ where: { id: newUser.id } });
-        throw Object.assign(new Error("Failed to send verification email"), { statusCode: StatusCodes.INTERNAL_SERVER_ERROR });
+        throw new AppError(StatusCodes.INTERNAL_SERVER_ERROR, "Failed to send verification email");
     }
 
     return newUser;
@@ -66,17 +67,17 @@ const verifyEmail = async (payload: EmailVerifyType) => {
     });
 
     if (!user) {
-        throw Object.assign(new Error("User not found"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "User not found");
     }
 
     const otpRecord = await OTPServices.getOTP("email_verification", user.id);
     if (!otpRecord) {
-        throw Object.assign(new Error("OTP expired or not found"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "OTP expired or not found");
     }
 
     const isOTPValid = await verifyOTP(otp, otpRecord);
     if (!isOTPValid) {
-        throw Object.assign(new Error("Invalid OTP"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Invalid OTP");
     }
 
     const updatedUser = await prisma.user.update({
@@ -107,20 +108,20 @@ const loginUser = async (payload: UserLoginType, userAgent?: string, ip?: string
     });
 
     if (!user) {
-        throw Object.assign(new Error("Invalid email or password"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Invalid email or password");
     }
 
     if (user.status === "DELETED") {
-        throw Object.assign(new Error("Your account has been deleted"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Your account has been deleted");
     }
 
     const isPasswordValid = await verifyPassword(password, user.password);
     if (!isPasswordValid) {
-        throw Object.assign(new Error("Invalid email or password"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Invalid email or password");
     }
 
     if (!user.isVerified) {
-        throw Object.assign(new Error("Please verify your email before logging in"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Please verify your email before logging in");
     }
 
     const jwtPayload: JwtPayload = { userId: user.id, email: user.email };
@@ -148,7 +149,7 @@ const loginUser = async (payload: UserLoginType, userAgent?: string, ip?: string
 const forgotPassword = async (payload: ForgotPasswordType) => {
     const user = await prisma.user.findUnique({ where: { email: payload.email } });
     if (!user) {
-        throw Object.assign(new Error("User not found"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "User not found");
     }
 
     const otp = generateOTP();
@@ -168,17 +169,17 @@ const verifyForgotPasswordOTP = async (payload: EmailVerifyType) => {
 
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
-        throw Object.assign(new Error("User not found"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "User not found");
     }
 
     const otpRecord = await OTPServices.getOTP("password_reset", user.id);
     if (!otpRecord) {
-        throw Object.assign(new Error("OTP expired or not found"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "OTP expired or not found");
     }
 
     const isOTPValid = await verifyOTP(otp, otpRecord);
     if (!isOTPValid) {
-        throw Object.assign(new Error("Invalid OTP"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Invalid OTP");
     }
 
     const resetToken = crypto.randomUUID();
@@ -194,7 +195,7 @@ const verifyForgotPasswordOTP = async (payload: EmailVerifyType) => {
 const resetPassword = async (resetToken: string, payload: ResetPasswordType) => {
     const userId = await redisClient.get(`reset:${resetToken}`);
     if (!userId) {
-        throw Object.assign(new Error("Invalid or expired reset token"), { statusCode: StatusCodes.BAD_REQUEST });
+        throw new AppError(StatusCodes.BAD_REQUEST, "Invalid or expired reset token");
     }
 
     const hashedPassword = await hashPassword(payload.newPassword);
@@ -217,7 +218,7 @@ const resetPassword = async (resetToken: string, payload: ResetPasswordType) => 
 const refreshToken = async (token: string) => {
     const payload = verifyRefreshToken(token);
     if (!payload) {
-        throw Object.assign(new Error("Invalid refresh token"), { statusCode: StatusCodes.UNAUTHORIZED });
+        throw new AppError(StatusCodes.UNAUTHORIZED, "Invalid refresh token");
     }
 
     const newAccessToken = createAccessToken({ userId: payload.userId, email: payload.email });

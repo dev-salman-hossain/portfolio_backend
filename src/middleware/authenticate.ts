@@ -1,3 +1,4 @@
+import { AppError } from "../errors/AppError.js";
 import { NextFunction, Request, Response } from "express";
 import { JwtPayload } from "../types/index.js";
 import { verifyAccessToken } from "../modules/auth/auth.helper.js";
@@ -20,12 +21,12 @@ const isAuthenticated = async (req: Request, _res: Response, next: NextFunction)
         const token = headerToken || cookieToken;
 
         if (!token) {
-            throw Object.assign(new Error("Unauthorized access"), { statusCode: StatusCodes.UNAUTHORIZED });
+            throw new AppError(StatusCodes.UNAUTHORIZED, "Unauthorized access");
         }
 
         const decoded = verifyAccessToken(token) as JwtPayload;
         if (!decoded) {
-            throw Object.assign(new Error("Unauthorized access"), { statusCode: StatusCodes.UNAUTHORIZED });
+            throw new AppError(StatusCodes.UNAUTHORIZED, "Unauthorized access");
         }
 
         const user = await prisma.user.findUnique({
@@ -34,15 +35,15 @@ const isAuthenticated = async (req: Request, _res: Response, next: NextFunction)
         });
 
         if (!user) {
-            throw Object.assign(new Error("Unauthorized access"), { statusCode: StatusCodes.UNAUTHORIZED });
+            throw new AppError(StatusCodes.UNAUTHORIZED, "Unauthorized access");
         }
 
         if (user.status === "DELETED") {
-            throw Object.assign(new Error("Your account has been deleted"), { statusCode: StatusCodes.FORBIDDEN });
+            throw new AppError(StatusCodes.FORBIDDEN, "Your account has been deleted");
         }
 
         if (user.status === "BLOCKED") {
-            throw Object.assign(new Error("Your account has been blocked"), { statusCode: StatusCodes.FORBIDDEN });
+            throw new AppError(StatusCodes.FORBIDDEN, "Your account has been blocked");
         }
 
         req.user = {
