@@ -1,7 +1,10 @@
-import { ZodTypeAny } from "zod";
+﻿import { ZodTypeAny } from "zod";
 import { Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
 
+/**
+ * Express middleware to validate request payload against a Zod schema.
+ */
 const validateRequest = (schema: ZodTypeAny) => {
     return (req: Request, res: Response, next: NextFunction) => {
         try {
