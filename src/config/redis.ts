@@ -1,4 +1,4 @@
-import { createClient, RedisClientType } from "redis";
+﻿import { createClient, RedisClientType } from "redis";
 import env from "./env.js";
 
 const redisClient: RedisClientType = createClient({
@@ -8,6 +8,9 @@ const redisClient: RedisClientType = createClient({
 redisClient.on("error", (err) => console.error("Redis Client Error", err));
 redisClient.on("connect", () => console.log("Redis connected successfully"));
 
+/**
+ * Establishes connection to the Redis server if not already connected.
+ */
 const connectRedis = async () => {
     try {
         if (!redisClient.isOpen) {
