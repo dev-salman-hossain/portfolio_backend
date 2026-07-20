@@ -1,5 +1,8 @@
-import bcrypt from "bcrypt";
+﻿import bcrypt from "bcrypt";
 
+/**
+ * Hashes a plaintext password using bcrypt with high work factor.
+ */
 export const hashPassword = async (password: string): Promise<string> => {
     return bcrypt.hash(password, 15);
 };
