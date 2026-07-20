@@ -7,6 +7,9 @@ export const hashPassword = async (password: string): Promise<string> => {
     return bcrypt.hash(password, 15);
 };
 
+/**
+ * Compares plaintext password against a hashed representation.
+ */
 export const verifyPassword = async (
     password: string,
     hashedPassword: string
