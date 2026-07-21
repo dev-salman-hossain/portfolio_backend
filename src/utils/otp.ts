@@ -1,5 +1,8 @@
-import bcrypt from "bcrypt";
+﻿import bcrypt from "bcrypt";
 
+/**
+ * Generates a 6-digit numeric OTP code string.
+ */
 export const generateOTP = (): string => {
     return Math.floor(100000 + Math.random() * 900000).toString();
 };
