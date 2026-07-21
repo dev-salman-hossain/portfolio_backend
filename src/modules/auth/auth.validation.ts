@@ -14,6 +14,7 @@ export const UserLoginSchema = z.object({
     password: z.string().min(1, 'Password is required')
 });
 
+// Validation schema for verifying user's email via OTP
 export const EmailVerifySchema = z.object({
     email: z.email('Invalid email address'),
     otp: z.string().length(6, 'OTP must be 6 digits')
