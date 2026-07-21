@@ -8,6 +8,7 @@ export const UserCreateSchema = z.object({
     role: z.enum(['ADMIN', 'USER'], { error: 'Invalid user role' }).optional()
 });
 
+// Validation schema for authenticating a user
 export const UserLoginSchema = z.object({
     email: z.email('Invalid email address'),
     password: z.string().min(1, 'Password is required')
