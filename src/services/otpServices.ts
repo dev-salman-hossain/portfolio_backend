@@ -13,6 +13,9 @@ const saveOTP = async (type: OTPType, userId: string, hashedOTP: string) => {
     return { userId, type };
 };
 
+/**
+ * Retrieves the stored hashed OTP from Redis for the specified user and type.
+ */
 const getOTP = async (type: OTPType, userId: string): Promise<string | null> => {
     const key = `otp:${type}:${userId}`;
     return redisClient.get(key);
