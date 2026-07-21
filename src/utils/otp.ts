@@ -7,6 +7,9 @@ export const generateOTP = (): string => {
     return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
+/**
+ * Hashes a generated OTP string using bcrypt.
+ */
 export const hashOTP = async (otp: string): Promise<string> => {
     return bcrypt.hash(otp, 15);
 };
