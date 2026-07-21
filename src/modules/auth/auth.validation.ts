@@ -1,5 +1,6 @@
-import { z } from "zod";
+﻿import { z } from "zod";
 
+// Validation schema for creating a user account
 export const UserCreateSchema = z.object({
     fullName: z.string().min(2, 'Full name must be at least 2 character'),
     email: z.email('Invalid email address'),
