@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+﻿import nodemailer from "nodemailer";
 import env from "../config/env.js";
 
 const transporter = nodemailer.createTransport({
@@ -10,6 +10,9 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+/**
+ * Sends a HTML verification email containing the generated OTP to the user.
+ */
 export const sendVerificationEmail = async (
     toEmail: string,
     fullName: string,
