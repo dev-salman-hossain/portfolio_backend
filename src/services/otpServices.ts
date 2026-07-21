@@ -1,9 +1,12 @@
-import { redisClient } from "../config/redis.js";
+﻿import { redisClient } from "../config/redis.js";
 
 const OTP_EXPIRY = 2 * 60; // 2 minutes in seconds
 
 type OTPType = "email_verification" | "password_reset" | "two_factor";
 
+/**
+ * Persists a hashed OTP to Redis with an expiration timeframe.
+ */
 const saveOTP = async (type: OTPType, userId: string, hashedOTP: string) => {
     const key = `otp:${type}:${userId}`;
     await redisClient.set(key, hashedOTP, { EX: OTP_EXPIRY });
