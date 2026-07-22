@@ -1,7 +1,10 @@
-import jwt from "jsonwebtoken";
+﻿import jwt from "jsonwebtoken";
 import env from "../../config/env.js";
 import { JwtPayload, RefreshTokenPayload } from "../../types/index.js";
 
+/**
+ * Creates a JWT access token valid for 15 minutes.
+ */
 export const createAccessToken = (payload: JwtPayload) => {
     return jwt.sign(payload, env.jwt_access_secret, { expiresIn: "15m" });
 };
