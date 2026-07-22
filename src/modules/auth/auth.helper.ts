@@ -38,6 +38,9 @@ export const verifyTempLoginToken = (token: string) => {
     return jwt.verify(token, env.jwt_temp_secret) as { userId: string; email: string };
 };
 
+/**
+ * Generates a unique secure UUID for tracking user sessions.
+ */
 export const generateSessionId = () => {
     return crypto.randomUUID();
 };
