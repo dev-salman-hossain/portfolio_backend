@@ -20,6 +20,7 @@ export const EmailVerifySchema = z.object({
     otp: z.string().length(6, 'OTP must be 6 digits')
 });
 
+// Validation schema for requesting OTP resend
 export const ResendOtpSchema = z.object({
     email: z.email('Invalid email address')
 });
