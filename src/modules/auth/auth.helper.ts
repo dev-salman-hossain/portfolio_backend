@@ -9,6 +9,9 @@ export const createAccessToken = (payload: JwtPayload) => {
     return jwt.sign(payload, env.jwt_access_secret, { expiresIn: "15m" });
 };
 
+/**
+ * Creates a JWT refresh token valid for 7 days.
+ */
 export const createRefreshToken = (payload: RefreshTokenPayload) => {
     return jwt.sign(payload, env.jwt_refresh_secret, { expiresIn: "7d" });
 };
