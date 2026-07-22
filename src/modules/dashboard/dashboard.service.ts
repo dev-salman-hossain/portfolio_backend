@@ -23,10 +23,22 @@ const getStats = async () => {
 };
 
 const getActivities = async () => {
-    return [
-        { id: 1, action: "New message received", date: new Date().toISOString() },
-        { id: 2, action: "Project 'Portfolio' updated", date: new Date(Date.now() - 86400000).toISOString() },
-    ];
+    try {
+        const messages = await prisma.contactMessage.findMany({
+            take: 5,
+            orderBy: { createdAt: "desc" }
+        });
+        return messages.map((m, index) => ({
+            id: index + 1,
+            action: New message from \: "\",
+            date: m.createdAt.toISOString()
+        }));
+    } catch {
+        return [
+            { id: 1, action: "New message received", date: new Date().toISOString() },
+            { id: 2, action: "Project 'Portfolio' updated", date: new Date(Date.now() - 86400000).toISOString() },
+        ];
+    }
 };
 
 const getChartData = async () => {
