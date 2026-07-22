@@ -10,6 +10,7 @@ const createProject = async (payload: any) => {
 const getAllProjects = async () => {
   return await prisma.project.findMany({
     include: { category: true },
+    orderBy: { createdAt: "desc" }
   });
 };
 
