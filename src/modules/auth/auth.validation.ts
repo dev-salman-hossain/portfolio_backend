@@ -30,6 +30,7 @@ export const ForgotPasswordSchema = z.object({
     email: z.email('Invalid email address')
 });
 
+// Validation schema for finalizing password reset
 export const ResetPasswordSchema = z.object({
     newPassword: z.string().min(6, 'Password must be at least 6 characters long').max(16, 'Password must be less than 16 characters'),
     confirmNewPassword: z.string().min(1, 'Confirm password is required')
