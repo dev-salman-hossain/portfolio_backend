@@ -25,6 +25,7 @@ export const ResendOtpSchema = z.object({
     email: z.email('Invalid email address')
 });
 
+// Validation schema for starting password recovery
 export const ForgotPasswordSchema = z.object({
     email: z.email('Invalid email address')
 });
