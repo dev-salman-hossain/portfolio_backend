@@ -241,7 +241,10 @@ export const ServiceScalarFieldEnum = {
 export const SessionScalarFieldEnum = {
     id: 'id',
     userId: 'userId',
+    sessionId: 'sessionId',
     refreshToken: 'refreshToken',
+    deviceInfo: 'deviceInfo',
+    ipAddress: 'ipAddress',
     expiresAt: 'expiresAt',
     createdAt: 'createdAt'
 };
@@ -283,6 +286,8 @@ export const UserScalarFieldEnum = {
     isVerified: 'isVerified',
     isTwoFactorEnabled: 'isTwoFactorEnabled',
     status: 'status',
+    deletedAt: 'deletedAt',
+    deleteAfter: 'deleteAfter',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
 };

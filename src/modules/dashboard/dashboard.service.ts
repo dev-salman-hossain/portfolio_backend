@@ -1,4 +1,4 @@
-﻿import { prisma } from "../../lib/prisma.js";
+import { prisma } from "../../lib/prisma.js";
 
 const getStats = async () => {
     try {
@@ -30,7 +30,7 @@ const getActivities = async () => {
         }).catch(() => []);
         return messages.map((m, index) => ({
             id: index + 1,
-            action: New message from \: "\",
+            action: `New message from ${m.name}: "${m.subject}"`,
             date: m.createdAt.toISOString()
         }));
     } catch {
@@ -45,9 +45,9 @@ const getChartData = async () => {
     try {
         const views = await prisma.projectView.findMany({
             take: 7,
-            orderBy: { createdAt: "desc" }
+            orderBy: { viewedAt: "desc" }
         }).catch(() => []);
-        const labels = views.map(v => new Date(v.createdAt).toLocaleDateString("en-US", { weekday: "short" })).reverse();
+        const labels = views.map(v => new Date(v.viewedAt).toLocaleDateString("en-US", { weekday: "short" })).reverse();
         const data = views.map(() => Math.floor(Math.random() * 100) + 50);
         return {
             labels: labels.length ? labels : ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],

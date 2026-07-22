@@ -1,4 +1,4 @@
-﻿import { Request, Response } from "express";
+import { Request, Response } from "express";
 import catchAsync from "../../utils/catchAsync.js";
 import sendResponse from "../../utils/sendResponse.js";
 import { ProjectService } from "./project.service.js";
@@ -25,7 +25,7 @@ const getAllProjects = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getProjectById = catchAsync(async (req: Request, res: Response) => {
-  const result = await ProjectService.getProjectById(req.params.id);
+  const result = await ProjectService.getProjectById(req.params.id as string);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
@@ -35,7 +35,7 @@ const getProjectById = catchAsync(async (req: Request, res: Response) => {
 });
 
 const updateProject = catchAsync(async (req: Request, res: Response) => {
-  const result = await ProjectService.updateProject(req.params.id, req.body);
+  const result = await ProjectService.updateProject(req.params.id as string, req.body);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
@@ -45,7 +45,7 @@ const updateProject = catchAsync(async (req: Request, res: Response) => {
 });
 
 const deleteProject = catchAsync(async (req: Request, res: Response) => {
-  const result = await ProjectService.deleteProject(req.params.id);
+  const result = await ProjectService.deleteProject(req.params.id as string);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,

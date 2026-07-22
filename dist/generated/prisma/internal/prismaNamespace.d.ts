@@ -2014,7 +2014,10 @@ export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeo
 export declare const SessionScalarFieldEnum: {
     readonly id: "id";
     readonly userId: "userId";
+    readonly sessionId: "sessionId";
     readonly refreshToken: "refreshToken";
+    readonly deviceInfo: "deviceInfo";
+    readonly ipAddress: "ipAddress";
     readonly expiresAt: "expiresAt";
     readonly createdAt: "createdAt";
 };
@@ -2060,6 +2063,8 @@ export declare const UserScalarFieldEnum: {
     readonly isVerified: "isVerified";
     readonly isTwoFactorEnabled: "isTwoFactorEnabled";
     readonly status: "status";
+    readonly deletedAt: "deletedAt";
+    readonly deleteAfter: "deleteAfter";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };

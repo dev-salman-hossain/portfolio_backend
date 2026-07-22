@@ -7,4 +7,4 @@ router.get("/stats", DashboardController.getStats);
 router.get("/activities", DashboardController.getActivities);
 router.get("/chart", DashboardController.getChartData);
 
-export const DashboardRoutes = router;
+export const DashboardRoutes: Router = router;

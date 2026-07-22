@@ -1,4 +1,4 @@
-﻿import { Router } from "express";
+import { Router } from "express";
 import validateRequest from "../../middleware/validateRequest.js";
 import isAuthenticated from "../../middleware/authenticate.js";
 import { createContactValidationSchema } from "./contact.validation.js";
@@ -10,4 +10,4 @@ router.post("/", validateRequest(createContactValidationSchema), ContactControll
 router.get("/", isAuthenticated, ContactController.getMessages);
 router.delete("/:id", isAuthenticated, ContactController.deleteMessage);
 
-export const ContactRoutes = router;
+export const ContactRoutes: Router = router;

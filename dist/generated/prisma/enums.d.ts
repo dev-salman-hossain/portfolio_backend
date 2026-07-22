@@ -1,6 +1,7 @@
 export declare const UserStatus: {
     readonly ACTIVE: "ACTIVE";
     readonly BLOCKED: "BLOCKED";
+    readonly DELETED: "DELETED";
 };
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
 export declare const UserRole: {

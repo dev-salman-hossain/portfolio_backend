@@ -9,7 +9,8 @@
 */
 export const UserStatus = {
     ACTIVE: 'ACTIVE',
-    BLOCKED: 'BLOCKED'
+    BLOCKED: 'BLOCKED',
+    DELETED: 'DELETED'
 };
 export const UserRole = {
     ADMIN: 'ADMIN',

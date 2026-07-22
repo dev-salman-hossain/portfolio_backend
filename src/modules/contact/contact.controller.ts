@@ -1,4 +1,4 @@
-﻿import { Request, Response } from "express";
+import { Request, Response } from "express";
 import catchAsync from "../../utils/catchAsync.js";
 import sendResponse from "../../utils/sendResponse.js";
 import { ContactService } from "./contact.service.js";
@@ -25,7 +25,7 @@ const getMessages = catchAsync(async (req: Request, res: Response) => {
 });
 
 const deleteMessage = catchAsync(async (req: Request, res: Response) => {
-  const result = await ContactService.deleteMessage(req.params.id);
+  const result = await ContactService.deleteMessage(req.params.id as string);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,

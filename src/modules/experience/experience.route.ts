@@ -1,4 +1,4 @@
-﻿import { Router } from "express";
+import { Router } from "express";
 import validateRequest from "../../middleware/validateRequest.js";
 import isAuthenticated from "../../middleware/authenticate.js";
 import { createExperienceValidationSchema, updateExperienceValidationSchema } from "./experience.validation.js";
@@ -11,4 +11,4 @@ router.get("/", ExperienceController.getAllExperiences);
 router.patch("/:id", isAuthenticated, validateRequest(updateExperienceValidationSchema), ExperienceController.updateExperience);
 router.delete("/:id", isAuthenticated, ExperienceController.deleteExperience);
 
-export const ExperienceRoutes = router;
+export const ExperienceRoutes: Router = router;

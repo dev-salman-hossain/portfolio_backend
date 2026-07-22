@@ -1,4 +1,4 @@
-﻿import { Router } from "express";
+import { Router } from "express";
 import validateRequest from "../../middleware/validateRequest.js";
 import isAuthenticated from "../../middleware/authenticate.js";
 import { createSkillValidationSchema, updateSkillValidationSchema } from "./skill.validation.js";
@@ -11,4 +11,4 @@ router.get("/", SkillController.getAllSkills);
 router.patch("/:id", isAuthenticated, validateRequest(updateSkillValidationSchema), SkillController.updateSkill);
 router.delete("/:id", isAuthenticated, SkillController.deleteSkill);
 
-export const SkillRoutes = router;
+export const SkillRoutes: Router = router;

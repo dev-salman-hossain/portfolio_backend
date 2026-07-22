@@ -1,18 +1,21 @@
 import app from "./app.js";
 import env from "./config/env.js";
-let server;
-async function bootstrap() {
+import { prisma } from "./lib/prisma.js";
+import connectRedis from "./config/redis.js";
+const bootstrap = async () => {
+    let server;
     try {
-        server = app.listen(env.port, () => {
-            console.log(`server is running on port ${env.port}`);
+        await prisma.$connect();
+        console.log("✅ Database connected successfully");
+        await connectRedis();
+        server = app().listen(env.port, () => {
+            console.log(`🚀 Server is listening on port ${env.port}`);
         });
     }
     catch (error) {
-        console.error('Failed to start server :', error);
+        console.error("❌ Failed to start server:", error);
         process.exit(1);
     }
-}
-(async () => {
-    await bootstrap();
-})();
+};
+bootstrap();
 //# sourceMappingURL=server.js.map

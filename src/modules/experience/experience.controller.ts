@@ -1,4 +1,4 @@
-﻿import { Request, Response } from "express";
+import { Request, Response } from "express";
 import catchAsync from "../../utils/catchAsync.js";
 import sendResponse from "../../utils/sendResponse.js";
 import { ExperienceService } from "./experience.service.js";
@@ -25,7 +25,7 @@ const getAllExperiences = catchAsync(async (req: Request, res: Response) => {
 });
 
 const updateExperience = catchAsync(async (req: Request, res: Response) => {
-  const result = await ExperienceService.updateExperience(req.params.id, req.body);
+  const result = await ExperienceService.updateExperience(req.params.id as string, req.body);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
@@ -35,7 +35,7 @@ const updateExperience = catchAsync(async (req: Request, res: Response) => {
 });
 
 const deleteExperience = catchAsync(async (req: Request, res: Response) => {
-  const result = await ExperienceService.deleteExperience(req.params.id);
+  const result = await ExperienceService.deleteExperience(req.params.id as string);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,

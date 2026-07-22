@@ -1,4 +1,4 @@
-﻿import { Request, Response } from "express";
+import { Request, Response } from "express";
 import catchAsync from "../../utils/catchAsync.js";
 import sendResponse from "../../utils/sendResponse.js";
 import { SkillService } from "./skill.service.js";
@@ -25,7 +25,7 @@ const getAllSkills = catchAsync(async (req: Request, res: Response) => {
 });
 
 const updateSkill = catchAsync(async (req: Request, res: Response) => {
-  const result = await SkillService.updateSkill(req.params.id, req.body);
+  const result = await SkillService.updateSkill(req.params.id as string, req.body);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
@@ -35,7 +35,7 @@ const updateSkill = catchAsync(async (req: Request, res: Response) => {
 });
 
 const deleteSkill = catchAsync(async (req: Request, res: Response) => {
-  const result = await SkillService.deleteSkill(req.params.id);
+  const result = await SkillService.deleteSkill(req.params.id as string);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,

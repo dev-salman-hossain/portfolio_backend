@@ -1,26 +1,26 @@
-﻿import { prisma } from "../../lib/prisma.js";
+import { prisma } from "../../lib/prisma.js";
 
 const createSkill = async (payload: any) => {
-  return await prisma.skills.create({
+  return await prisma.skill.create({
     data: payload,
   });
 };
 
 const getAllSkills = async () => {
-  return await prisma.skills.findMany({
-    orderBy: { proficiency: "desc" }
+  return await prisma.skill.findMany({
+    orderBy: { level: "desc" }
   });
 };
 
 const updateSkill = async (id: string, payload: any) => {
-  return await prisma.skills.update({
+  return await prisma.skill.update({
     where: { id },
     data: payload,
   });
 };
 
 const deleteSkill = async (id: string) => {
-  return await prisma.skills.delete({
+  return await prisma.skill.delete({
     where: { id },
   });
 };
