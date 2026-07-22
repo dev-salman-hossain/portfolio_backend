@@ -7,7 +7,9 @@ const createSkill = async (payload: any) => {
 };
 
 const getAllSkills = async () => {
-  return await prisma.skills.findMany();
+  return await prisma.skills.findMany({
+    orderBy: { proficiency: "desc" }
+  });
 };
 
 const updateSkill = async (id: string, payload: any) => {
