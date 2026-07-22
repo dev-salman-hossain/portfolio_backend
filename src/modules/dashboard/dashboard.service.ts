@@ -2,10 +2,10 @@
 
 const getStats = async () => {
     try {
-        const totalViews = await prisma.projectView.count();
-        const totalProjects = await prisma.project.count();
-        const totalMessages = await prisma.contactMessage.count();
-        const activeVisitors = await prisma.visitorAnalytics.count();
+        const totalViews = await prisma.projectView.count().catch(() => 0);
+        const totalProjects = await prisma.project.count().catch(() => 0);
+        const totalMessages = await prisma.contactMessage.count().catch(() => 0);
+        const activeVisitors = await prisma.visitorAnalytics.count().catch(() => 0);
         return {
             totalViews: totalViews || 12450,
             totalProjects: totalProjects || 15,
@@ -27,7 +27,7 @@ const getActivities = async () => {
         const messages = await prisma.contactMessage.findMany({
             take: 5,
             orderBy: { createdAt: "desc" }
-        });
+        }).catch(() => []);
         return messages.map((m, index) => ({
             id: index + 1,
             action: New message from \: "\",
@@ -46,7 +46,7 @@ const getChartData = async () => {
         const views = await prisma.projectView.findMany({
             take: 7,
             orderBy: { createdAt: "desc" }
-        });
+        }).catch(() => []);
         const labels = views.map(v => new Date(v.createdAt).toLocaleDateString("en-US", { weekday: "short" })).reverse();
         const data = views.map(() => Math.floor(Math.random() * 100) + 50);
         return {
