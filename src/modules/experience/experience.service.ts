@@ -7,7 +7,9 @@ const createExperience = async (payload: any) => {
 };
 
 const getAllExperiences = async () => {
-  return await prisma.experience.findMany();
+  return await prisma.experience.findMany({
+    orderBy: { startDate: "desc" }
+  });
 };
 
 const updateExperience = async (id: string, payload: any) => {
