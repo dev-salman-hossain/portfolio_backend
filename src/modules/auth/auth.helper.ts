@@ -23,6 +23,9 @@ export const verifyAccessToken = (token: string) => {
     return jwt.verify(token, env.jwt_access_secret) as JwtPayload;
 };
 
+/**
+ * Synchronously verifies a JWT refresh token.
+ */
 export const verifyRefreshToken = (token: string) => {
     return jwt.verify(token, env.jwt_refresh_secret) as RefreshTokenPayload;
 };
