@@ -16,6 +16,9 @@ export const createRefreshToken = (payload: RefreshTokenPayload) => {
     return jwt.sign(payload, env.jwt_refresh_secret, { expiresIn: "7d" });
 };
 
+/**
+ * Synchronously verifies a JWT access token.
+ */
 export const verifyAccessToken = (token: string) => {
     return jwt.verify(token, env.jwt_access_secret) as JwtPayload;
 };
