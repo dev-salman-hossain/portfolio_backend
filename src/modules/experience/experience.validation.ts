@@ -1,5 +1,6 @@
-import { z } from "zod";
+﻿import { z } from "zod";
 
+// Validation schema for creating a work experience entry
 export const createExperienceValidationSchema = z.object({
   body: z.object({
     role: z.string().min(1, "Role is required"),
