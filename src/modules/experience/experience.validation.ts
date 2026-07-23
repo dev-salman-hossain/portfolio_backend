@@ -12,6 +12,7 @@ export const createExperienceValidationSchema = z.object({
   }),
 });
 
+// Validation schema for updating a work experience entry
 export const updateExperienceValidationSchema = z.object({
   body: z.object({
     role: z.string().optional(),
