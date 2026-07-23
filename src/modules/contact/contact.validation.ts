@@ -1,5 +1,6 @@
-import { z } from "zod";
+﻿import { z } from "zod";
 
+// Validation schema for incoming contact message payloads
 export const createContactValidationSchema = z.object({
   body: z.object({
     name: z.string().min(1, "Name is required"),
