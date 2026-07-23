@@ -1,5 +1,6 @@
-import { z } from "zod";
+﻿import { z } from "zod";
 
+// Validation schema for creating a technical skill entry
 export const createSkillValidationSchema = z.object({
   body: z.object({
     name: z.string().min(1, "Name is required"),
