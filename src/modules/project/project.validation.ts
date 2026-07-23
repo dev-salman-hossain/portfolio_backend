@@ -16,6 +16,7 @@ export const createProjectValidationSchema = z.object({
   }),
 });
 
+// Validation schema for updating project details
 export const updateProjectValidationSchema = z.object({
   body: z.object({
     title: z.string().optional(),
