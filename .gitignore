@@ -1,7 +1,7 @@
 node_modules
 # Keep environment variables out of version control
 .env
-
+dist
 /generated/prisma
 
 /src/generated/prisma
@@ -9,3 +9,4 @@ node_modules
 auth.md
 projectSetUp.md
 dashboard_routes.md
+project.md 
