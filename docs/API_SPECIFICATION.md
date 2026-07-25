@@ -43,3 +43,14 @@ Clears the refresh token cookie and invalidates the session.
 
 - **Responses:**
   - `200 OK`: Logout successful.
+
+### POST /api/v1/auth/verify-email
+
+Requests a verification code OTP to be sent to the user's email.
+
+- **Request Body:**
+  ```json
+  {
+    "email": "user@example.com"
+  }
+  ```
