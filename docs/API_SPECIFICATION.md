@@ -92,3 +92,17 @@ Generates a new access token using the HTTP-only refresh token.
 ## Contact Module
 
 Handles user inquiries, messages, and contact submissions from the portfolio frontend website.
+
+### POST /api/v1/contact
+
+Submits a contact/inquiry form message.
+
+- **Request Body:**
+  ```json
+  {
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "subject": "Collab inquiry",
+    "message": "Hello, I would like to collaborate on a project."
+  }
+  ```
