@@ -188,3 +188,7 @@ Creates a new project showcasing item. (Admin only).
 ### PATCH /api/v1/project/:id
 
 Updates project attributes such as links, tags, descriptions or assets. (Admin only).
+
+### DELETE /api/v1/project/:id
+
+Removes a project entry from the database. (Admin only).
