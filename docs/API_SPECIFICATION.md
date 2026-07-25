@@ -106,3 +106,10 @@ Submits a contact/inquiry form message.
     "message": "Hello, I would like to collaborate on a project."
   }
   ```
+
+### GET /api/v1/contact
+
+Retrieves all submitted contact messages. (Admin access required).
+
+- **Responses:**
+  - `200 OK`: Returns array of contact messages.
