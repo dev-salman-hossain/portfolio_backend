@@ -54,3 +54,15 @@ Requests a verification code OTP to be sent to the user's email.
     "email": "user@example.com"
   }
   ```
+
+### POST /api/v1/auth/verify-otp
+
+Validates the OTP code received via email.
+
+- **Request Body:**
+  ```json
+  {
+    "email": "user@example.com",
+    "otp": "123456"
+  }
+  ```
