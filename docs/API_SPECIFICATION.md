@@ -36,3 +36,10 @@ Authenticates a user and returns access and refresh tokens.
 - **Responses:**
   - `200 OK`: Login successful. Sets refresh token HTTP-only cookie.
   - `401 Unauthorized`: Invalid credentials.
+
+### POST /api/v1/auth/logout
+
+Clears the refresh token cookie and invalidates the session.
+
+- **Responses:**
+  - `200 OK`: Logout successful.
