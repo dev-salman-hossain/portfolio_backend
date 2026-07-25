@@ -135,3 +135,7 @@ Fetches total count of projects, skills, contact queries, and recent activity lo
     "systemStatus": "healthy"
   }
   ```
+
+## Experience Module
+
+Manages professional career history entries displayed on the portfolio timeline.
