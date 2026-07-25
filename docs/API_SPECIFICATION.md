@@ -21,3 +21,18 @@ Registers a new user/administrator in the system.
 - **Responses:**
   - `201 Created`: Account created successfully, verification email sent.
   - `400 Bad Request`: Invalid input data or email already exists.
+
+### POST /api/v1/auth/login
+
+Authenticates a user and returns access and refresh tokens.
+
+- **Request Body:**
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "strongpassword123"
+  }
+  ```
+- **Responses:**
+  - `200 OK`: Login successful. Sets refresh token HTTP-only cookie.
+  - `401 Unauthorized`: Invalid credentials.
