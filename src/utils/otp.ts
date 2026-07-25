@@ -14,6 +14,9 @@ export const hashOTP = async (otp: string): Promise<string> => {
     return bcrypt.hash(otp, 15);
 };
 
+/**
+ * Verifies the validity of an OTP against its hashed counterpart.
+ */
 export const verifyOTP = async (otp: string, hashedOTP: string): Promise<boolean> => {
     return bcrypt.compare(otp, hashedOTP);
 };
