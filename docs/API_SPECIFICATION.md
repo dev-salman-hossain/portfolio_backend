@@ -66,3 +66,16 @@ Validates the OTP code received via email.
     "otp": "123456"
   }
   ```
+
+### POST /api/v1/auth/reset-password
+
+Allows resetting password using a verified OTP token.
+
+- **Request Body:**
+  ```json
+  {
+    "email": "user@example.com",
+    "otp": "123456",
+    "newPassword": "newSecurePassword123"
+  }
+  ```
