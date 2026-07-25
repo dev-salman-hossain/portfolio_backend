@@ -117,3 +117,7 @@ Retrieves all submitted contact messages. (Admin access required).
 ### DELETE /api/v1/contact/:id
 
 Deletes a contact message by its ID. (Admin access required).
+
+## Dashboard Module
+
+Provides summary metrics and system statistics to the administrative panel dashboard.
