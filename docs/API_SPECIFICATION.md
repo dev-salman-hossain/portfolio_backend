@@ -161,3 +161,7 @@ Updates an existing experience entry details dynamically. (Admin only).
 ### DELETE /api/v1/experience/:id
 
 Deletes an experience timeline entry. (Admin only).
+
+### GET /api/v1/experience
+
+Fetches all experience records. Publicly accessible.
