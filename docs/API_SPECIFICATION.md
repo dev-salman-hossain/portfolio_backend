@@ -121,3 +121,7 @@ Deletes a contact message by its ID. (Admin access required).
 ## Dashboard Module
 
 Provides summary metrics and system statistics to the administrative panel dashboard.
+
+### GET /api/v1/dashboard/stats
+
+Fetches total count of projects, skills, contact queries, and recent activity logs.
