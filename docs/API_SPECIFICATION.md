@@ -125,3 +125,13 @@ Provides summary metrics and system statistics to the administrative panel dashb
 ### GET /api/v1/dashboard/stats
 
 Fetches total count of projects, skills, contact queries, and recent activity logs.
+
+- **Stats Response Example:**
+  ```json
+  {
+    "projectsCount": 12,
+    "skillsCount": 24,
+    "unreadContacts": 3,
+    "systemStatus": "healthy"
+  }
+  ```
