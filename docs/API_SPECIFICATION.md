@@ -165,3 +165,7 @@ Deletes an experience timeline entry. (Admin only).
 ### GET /api/v1/experience
 
 Fetches all experience records. Publicly accessible.
+
+## Project Module
+
+Handles the creation, display, categorisation and update of development projects.
