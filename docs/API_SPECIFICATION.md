@@ -153,3 +153,7 @@ Creates a new experience entry. (Admin only).
     "description": "Led backend development projects."
   }
   ```
+
+### PATCH /api/v1/experience/:id
+
+Updates an existing experience entry details dynamically. (Admin only).
