@@ -139,3 +139,17 @@ Fetches total count of projects, skills, contact queries, and recent activity lo
 ## Experience Module
 
 Manages professional career history entries displayed on the portfolio timeline.
+
+### POST /api/v1/experience
+
+Creates a new experience entry. (Admin only).
+
+- **Request Body:**
+  ```json
+  {
+    "company": "Tech Corp",
+    "role": "Senior Engineer",
+    "duration": "2022 - Present",
+    "description": "Led backend development projects."
+  }
+  ```
