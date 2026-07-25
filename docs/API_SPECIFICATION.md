@@ -5,3 +5,19 @@ This document details the REST API endpoints, request/response models, rate limi
 ## Authentication Module
 
 The authentication module handles user registration, login, token refresh, and email verification. JWT is used for authorization.
+
+### POST /api/v1/auth/register
+
+Registers a new user/administrator in the system.
+
+- **Request Body:**
+  ```json
+  {
+    "name": "string",
+    "email": "user@example.com",
+    "password": "strongpassword123"
+  }
+  ```
+- **Responses:**
+  - `201 Created`: Account created successfully, verification email sent.
+  - `400 Bad Request`: Invalid input data or email already exists.
