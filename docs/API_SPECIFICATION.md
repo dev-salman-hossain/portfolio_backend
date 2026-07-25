@@ -79,3 +79,12 @@ Allows resetting password using a verified OTP token.
     "newPassword": "newSecurePassword123"
   }
   ```
+
+### POST /api/v1/auth/refresh-token
+
+Generates a new access token using the HTTP-only refresh token.
+
+- **Headers:**
+  - Cookie: `refreshToken=<token>`
+- **Responses:**
+  - `200 OK`: Returns new access token.
