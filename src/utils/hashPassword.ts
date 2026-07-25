@@ -3,6 +3,9 @@
 /**
  * Hashes a plaintext password using bcrypt with high work factor.
  */
+/**
+ * Utility helper to encrypt password strings.
+ */
 export const hashPassword = async (password: string): Promise<string> => {
     return bcrypt.hash(password, 15);
 };
