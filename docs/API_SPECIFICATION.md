@@ -88,3 +88,7 @@ Generates a new access token using the HTTP-only refresh token.
   - Cookie: `refreshToken=<token>`
 - **Responses:**
   - `200 OK`: Returns new access token.
+
+## Contact Module
+
+Handles user inquiries, messages, and contact submissions from the portfolio frontend website.
