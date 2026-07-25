@@ -157,3 +157,7 @@ Creates a new experience entry. (Admin only).
 ### PATCH /api/v1/experience/:id
 
 Updates an existing experience entry details dynamically. (Admin only).
+
+### DELETE /api/v1/experience/:id
+
+Deletes an experience timeline entry. (Admin only).
