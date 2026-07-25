@@ -169,3 +169,18 @@ Fetches all experience records. Publicly accessible.
 ## Project Module
 
 Handles the creation, display, categorisation and update of development projects.
+
+### POST /api/v1/project
+
+Creates a new project showcasing item. (Admin only).
+
+- **Request Body:**
+  ```json
+  {
+    "title": "Portfolio Webapp",
+    "description": "Fullstack Next.js App",
+    "githubLink": "https://github.com/...",
+    "liveLink": "https://...",
+    "tags": ["React", "TypeScript"]
+  }
+  ```
