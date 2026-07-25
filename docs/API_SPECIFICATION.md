@@ -184,3 +184,7 @@ Creates a new project showcasing item. (Admin only).
     "tags": ["React", "TypeScript"]
   }
   ```
+
+### PATCH /api/v1/project/:id
+
+Updates project attributes such as links, tags, descriptions or assets. (Admin only).
