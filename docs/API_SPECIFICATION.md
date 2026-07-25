@@ -113,3 +113,7 @@ Retrieves all submitted contact messages. (Admin access required).
 
 - **Responses:**
   - `200 OK`: Returns array of contact messages.
+
+### DELETE /api/v1/contact/:id
+
+Deletes a contact message by its ID. (Admin access required).
