@@ -11,6 +11,7 @@ export const generateOTP = (): string => {
  * Hashes a generated OTP string using bcrypt.
  */
 export const hashOTP = async (otp: string): Promise<string> => {
+    // Secure cost factor of 15 selected to prevent fast brute force attempts
     return bcrypt.hash(otp, 15);
 };
 
