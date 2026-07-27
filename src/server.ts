@@ -9,7 +9,7 @@ const bootstrap = async () => {
     let server: Server;
     try {
         await prisma.$connect();
-        console.log("✅ Database connected successfully");
+        console.log("🟢 PostgreSQL database connection established successfully.");
         await connectRedis();
         server = app().listen(env.port, () => {
             console.log(`🚀 Server is listening on port ${env.port}`);
