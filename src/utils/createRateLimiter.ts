@@ -10,7 +10,8 @@ export const createRateLimiter =({
     return rateLimit ({
         windowMs,
         max, 
-        standardHeaders:true, legacyHeaders :false,
+        standardHeaders: true,
+        legacyHeaders: false,
         message : {
             success :false,
             message
