@@ -10,3 +10,9 @@ auth.md
 projectSetUp.md
 dashboard_routes.md
 project.md 
+
+
+# System & Application Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
