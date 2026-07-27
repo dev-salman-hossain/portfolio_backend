@@ -6,6 +6,7 @@
  */
 const catchAsync = (fn: RequestHandler) => {
     return (req: Request, res: Response, next: NextFunction) => {
+        // Ensure all async execution errors are caught and forwarded to Express error handling pipeline
         Promise.resolve(fn(req, res, next)).catch((err) => next(err));
     };
 };
