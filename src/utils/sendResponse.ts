@@ -9,6 +9,9 @@ type TResponseData<T> = {
 
 /**
  * Sends a standardized API response JSON structure.
+ *
+ * @param res - Express response object
+ * @param payload - Standard status code, success status, message and response data
  */
 const sendResponse = <T>(res: Response, payload: TResponseData<T>): void => {
     res.status(payload.statusCode).json({
