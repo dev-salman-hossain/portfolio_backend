@@ -1,3 +1,4 @@
+/// Represents blog posts published on the portfolio website
 model Blog {
   id String @id @default(cuid())
 
