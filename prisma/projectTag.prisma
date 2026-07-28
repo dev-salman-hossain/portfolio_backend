@@ -6,5 +6,6 @@ model ProjectTag {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+    /// Many-to-many relation with Project
   projects Project[]
 }
