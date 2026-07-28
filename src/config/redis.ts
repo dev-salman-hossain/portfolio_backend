@@ -7,6 +7,7 @@ const redisClient: RedisClientType = createClient({
 
 redisClient.on("error", (err) => console.error("Redis Client Error", err));
 redisClient.on("connect", () => console.log("Redis connected successfully"));
+redisClient.on("reconnecting", () => console.log("Redis client is reconnecting..."));
 
 /**
  * Establishes connection to the Redis server if not already connected.
