@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./dist",
+    "outDir": "./dist", // Redirect compiler output directory
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "es2023",
