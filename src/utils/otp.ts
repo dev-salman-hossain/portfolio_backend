@@ -4,7 +4,7 @@
  * Generates a 6-digit numeric OTP code string.
  */
 export const generateOTP = (): string => {
-    // Generate a secure random 6 digit numeric code
+    // Generate a secure random 6-digit numeric verification code
     return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
