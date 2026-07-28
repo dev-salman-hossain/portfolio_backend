@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const env = {
+    // Application Port configuration
     port: process.env.PORT || 5000,
     database_url: process.env.DATABASE_URL,
     redis_url: process.env.REDIS_URL || 'redis://localhost:6379',
