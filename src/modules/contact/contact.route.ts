@@ -6,7 +6,9 @@ import { ContactController } from "./contact.controller.js";
 
 const router = Router();
 
+// Public endpoint: Send new message
 router.post("/", validateRequest(createContactValidationSchema), ContactController.saveMessage);
+// Admin only endpoints
 router.get("/", isAuthenticated, ContactController.getMessages);
 router.delete("/:id", isAuthenticated, ContactController.deleteMessage);
 
