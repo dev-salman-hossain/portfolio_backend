@@ -35,6 +35,7 @@ const moduleRoutes = [
     }
 ];
 
+// Mount each feature module route to the base router path
 moduleRoutes.forEach((route) => router.use(route.path, route.route));
 
 export default router;
